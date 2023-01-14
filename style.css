@@ -1,10 +1,30 @@
+* {
+    margin-top: 0;
+}
+
 body {
-    padding: 5px;
-    font-size: 20px;
+    padding: 20px;
+    font-size: 15px;
     font-family: sans-serif;
     color: #cad2c5;
     background-color: #2f3e46;
     box-sizing: border-box;
+}
+
+.top--head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.main--clock {
+    text-align: left;
+    font-size: 20px;
+}
+
+.main--date {
+    text-align: right;
+    font-size: 20px;
 }
 
 .top--container {
@@ -12,12 +32,23 @@ body {
     width: auto;
     background-color: #354f52;
     border-radius: 5px;
-    padding: 10px;
+    padding: 20px;
 }
 
-.main--clock,
-.main--date {
-    display: inline-block;
+.dayProgress {
+    width: 100%;
+    background-color: #52796f;
+}
+
+.dayBar {
+    width: 1%;
+    height: 30px;
+    background-color: #84a98c;
+}
+
+.title {
+    font-size: 20px;
+    text-align: center;
 }
 
 .top--title {
@@ -25,16 +56,68 @@ body {
     overflow: hidden;
 }
 
-.main--date {
-    position: absolute;
-    right: 22px;
+.middle--container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
 }
 
-.middle--container {
-    margin-top: 50px;
+.left--container {
+    margin-top: 20px;
     height: auto;
     width: auto;
     background-color: #354f52;
     border-radius: 5px;
-    padding: 10px;
+    padding: 20px;
+}
+
+.weekProgress {
+    width: 100%;
+    background-color: #52796f;
+}
+
+.weekBar {
+    width: 1%;
+    height: 30px;
+    background-color: #84a98c;
+}
+
+.right--container {
+    margin-top: 20px;
+    height: auto;
+    width: auto;
+    background-color: #354f52;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.mouthProgress {
+    width: 100%;
+    background-color: #52796f;
+}
+
+.mouthBar {
+    width: 1%;
+    height: 30px;
+    background-color: #84a98c;
+}
+
+.bottom--container {
+    margin-top: 20px;
+    height: auto;
+    width: auto;
+    background-color: #354f52;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.yearProgress {
+    width: 100%;
+    background-color: #52796f;
+}
+
+.yearBar {
+    width: 1%;
+    height: 30px;
+    background-color: #84a98c;
 }

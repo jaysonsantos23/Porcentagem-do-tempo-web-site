@@ -10,18 +10,48 @@
 </head>
 
 <body>
-    <p class="main--clock"></p>
-    <p class="main--date"></p>
+
+    <header class="top--head">
+        <p class="main--clock"></p>
+        <p class="main--date"></p>
+    </header>
+
     <div class="top--container">
-        <p class="top--title">Porcetagem do ano</p>
+        <p class="title">Porcetagem do dia</p>
+        <p class="second--count"></p>
+        <p class="minute--count"></p>
+        <p class="day--percent"></p>
+        <div class="dayProgress">
+            <div class="dayBar"></div>
+        </div>
+    </div>
+
+    <div class="middle--container">
+        <div class="left--container">
+            <p class="title">Porcentagem da semana</p>
+            <p class="week--percent"></p>
+            <div class="weekProgress">
+                <div class="weekBar"></div>
+            </div>
+        </div>
+        <div class="right--container">
+            <p class="title">Porcentagem do mês</p>
+            <p class="mouth--percent"></p>
+            <div class="mouthProgress">
+                <div class="mouthBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom--container">
+        <p class="title">Porcetagem do ano</p>
         <p class="day--count"></p>
         <p class="year--percent"></p>
+        <div class="yearProgress">
+            <div class="yearBar"></div>
+        </div>
     </div>
-    <div class="middle--container">
-        <p class="top--title">Porcetagem do dia</p>
-        <p class="hour--count"></p>
-        <p class="day--percent"></p>
-    </div>
+
     <script src="script.js"></script>
 </body>
 

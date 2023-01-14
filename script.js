@@ -26,31 +26,71 @@ setInterval(() => {
     conteudo.textContent = `Contagem de dias : ${diffDays} dias`;
 
     const yearPercent = (diffDays / 365) * 100;
-    let percentFinal = yearPercent;
+    let percentPastYear = yearPercent;
 
     const oneDayPercent = 1 / 3.65;
     const oneHourPercent = oneDayPercent / 24;
     const currentHourPercent = oneHourPercent * hours;
-    percentFinal += currentHourPercent;
+    percentPastYear += currentHourPercent;
 
     const oneMinutePercent = oneHourPercent / 60;
     const currentMinutePercent = oneMinutePercent * minutes;
-    percentFinal += currentMinutePercent;
+    percentPastYear += currentMinutePercent;
 
     const oneSecondPercent = oneMinutePercent / 60
     const currentSecondPercent = oneSecondPercent * seconds;
-    percentFinal += currentSecondPercent;
+    percentPastYear += currentSecondPercent;
 
     conteudo = document.querySelector(".year--percent");
-    conteudo.textContent = `Porcentagem passada do ano: ${percentFinal.toFixed(12)}%`;
+    conteudo.textContent = `Porcentagem passada do ano: ${percentPastYear.toFixed(12)}%`;
+
+    let elem = document.querySelector(".yearBar");
+    elem.style.width = percentPastYear.toFixed(12) + "%";
+
 
     let percentPastDay = (hours / 24) * 100;
-    const percentMinute = ((1 / 24) / 60) * minutes;
+    const percentMinute = (((1 / 24) * 100) / 60) * minutes;
     percentPastDay += percentMinute;
 
-    const percentSeconds = (((1 / 24) / 60) / 60) * seconds;
+    const percentSeconds = ((((1 / 24) * 100) / 60) / 60) * seconds;
     percentPastDay += percentSeconds;
 
     conteudo = document.querySelector(".day--percent");
     conteudo.textContent = `Porcentagem passada do dia: ${percentPastDay.toFixed(12)}%`;
+    elem = document.querySelector(".dayBar");
+    elem.style.width = percentPastDay.toFixed(12) + "%";
+
+    let percentPastWeek = ((currentdate.getDay()) / 7) * 100;
+    const hourWeekPercent = ((1 / 7) * 100) / 24;
+    percentPastWeek += (hourWeekPercent * hours);
+
+    const minuteWeekPercent = (((1 / 7) * 100) / 24) / 60;
+    percentPastWeek += (minuteWeekPercent * minutes);
+
+    const secondWeekPercent = ((((1 / 7) * 100) / 24) / 60) / 60;
+    percentPastWeek += (secondWeekPercent * seconds);
+
+    conteudo = document.querySelector(".week--percent");
+    conteudo.textContent = `Porcentagem passada da semana: ${percentPastWeek.toFixed(12)}%`;
+    elem = document.querySelector(".weekBar");
+    elem.style.width = percentPastWeek.toFixed(12) + "%";
+
+
+    const daysInMouth = new Date(year, mounth, 0).getDate();
+    let percentPastMouth = (day / daysInMouth) * 100;
+
+    const hourMouthPercent = ((1 / 30) * 100) / 24;
+    percentPastMouth += (hourMouthPercent * hours);
+
+    const minuteMouthPercent = (((1 / 30) * 100) / 24) / 60;
+    percentPastMouth += (minuteMouthPercent * minutes);
+
+    const secondMouthPercent = ((((1 / 30) * 100) / 24) / 60) / 60;
+    percentPastMouth += (secondMouthPercent * seconds);
+
+    conteudo = document.querySelector(".mouth--percent");
+    conteudo.textContent = `Porcentagem passada do mês: ${percentPastMouth.toFixed(12)}%`;
+    elem = document.querySelector(".mouthBar");
+    elem.style.width = percentPastMouth.toFixed(12) + "%";
+
 }, 50);
