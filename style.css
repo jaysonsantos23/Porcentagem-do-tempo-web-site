@@ -38,17 +38,21 @@ body {
 .dayProgress {
     width: 100%;
     background-color: #52796f;
+    border-radius: 5px;
 }
 
 .dayBar {
     width: 1%;
     height: 30px;
     background-color: #84a98c;
+    border-radius: 5px;
 }
 
 .title {
     font-size: 20px;
     text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .top--title {
@@ -74,12 +78,14 @@ body {
 .weekProgress {
     width: 100%;
     background-color: #52796f;
+    border-radius: 5px;
 }
 
 .weekBar {
     width: 1%;
     height: 30px;
     background-color: #84a98c;
+    border-radius: 5px;
 }
 
 .right--container {
@@ -94,12 +100,14 @@ body {
 .mouthProgress {
     width: 100%;
     background-color: #52796f;
+    border-radius: 5px;
 }
 
 .mouthBar {
     width: 1%;
     height: 30px;
     background-color: #84a98c;
+    border-radius: 5px;
 }
 
 .bottom--container {
@@ -114,10 +122,12 @@ body {
 .yearProgress {
     width: 100%;
     background-color: #52796f;
+    border-radius: 5px;
 }
 
 .yearBar {
     width: 1%;
     height: 30px;
     background-color: #84a98c;
+    border-radius: 5px;
 }

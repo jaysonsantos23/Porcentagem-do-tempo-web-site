@@ -5,6 +5,7 @@ setInterval(() => {
     const day = currentdate.getDate();
     const mounth = ((currentdate.getMonth() + 1) < 10 ? "0" + (currentdate.getMonth() + 1) : (currentdate.getMonth() + 1));
     const year = currentdate.getFullYear();
+    const fullyear = ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0) ? 366 : 365
     const hours = (currentdate.getHours() < 10 ? "0" + currentdate.getHours() : currentdate.getHours());
     const minutes = (currentdate.getMinutes() < 10 ? "0" + currentdate.getMinutes() : currentdate.getMinutes());
     const seconds = (currentdate.getSeconds() < 10 ? "0" + currentdate.getSeconds() : currentdate.getSeconds());
@@ -23,12 +24,24 @@ setInterval(() => {
     const diffDays = (Math.ceil(diffTime / (1000 * 60 * 60 * 24))) + 1;
 
     conteudo = document.querySelector(".day--count");
-    conteudo.textContent = `Contagem de dias : ${diffDays} dias`;
+    conteudo.textContent = `Contagem de dias: ${diffDays} dias`;
 
-    const yearPercent = (diffDays / 365) * 100;
+    let countHourPastYear = diffDays * 24 + hours;
+    conteudo = document.querySelector(".hours--count");
+    conteudo.textContent = `Contagem de horas: ${countHourPastYear} horas`;
+
+    let countMinutesPastYear = countHourPastYear * 60 + minutes;
+    conteudo = document.querySelector(".minutes--count");
+    conteudo.textContent = `Contagem de minutos: ${countMinutesPastYear} minutos`;
+
+    let countSecondsPastYear = countMinutesPastYear * 60 + seconds;
+    conteudo = document.querySelector(".seconds--count");
+    conteudo.textContent = `Contagem de segundos: ${countSecondsPastYear} segundos`;
+
+    const yearPercent = (diffDays / fullyear) * 100;
     let percentPastYear = yearPercent;
 
-    const oneDayPercent = 1 / 3.65;
+    const oneDayPercent = 1 / (fullyear / 100);
     const oneHourPercent = oneDayPercent / 24;
     const currentHourPercent = oneHourPercent * hours;
     percentPastYear += currentHourPercent;
