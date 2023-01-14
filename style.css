@@ -1,0 +1,40 @@
+body {
+    padding: 5px;
+    font-size: 20px;
+    font-family: sans-serif;
+    color: #cad2c5;
+    background-color: #2f3e46;
+    box-sizing: border-box;
+}
+
+.top--container {
+    height: auto;
+    width: auto;
+    background-color: #354f52;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.main--clock,
+.main--date {
+    display: inline-block;
+}
+
+.top--title {
+    text-align: center;
+    overflow: hidden;
+}
+
+.main--date {
+    position: absolute;
+    right: 22px;
+}
+
+.middle--container {
+    margin-top: 50px;
+    height: auto;
+    width: auto;
+    background-color: #354f52;
+    border-radius: 5px;
+    padding: 10px;
+}

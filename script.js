@@ -1,4 +1,4 @@
-let x = setInterval(() => {
+setInterval(() => {
     let conteudo = document.querySelector(".main--clock");
     let currentdate = new Date();
 
@@ -12,7 +12,7 @@ let x = setInterval(() => {
 
     conteudo.textContent = time;
 
-    const date = `${day}:${mounth}:${year}`;
+    const date = `${day}/${mounth}/${year}`;
     conteudo = document.querySelector(".main--date");
     conteudo.textContent = date;
 
@@ -22,8 +22,8 @@ let x = setInterval(() => {
     const diffTime = Math.abs(date2 - date1);
     const diffDays = (Math.ceil(diffTime / (1000 * 60 * 60 * 24))) + 1;
 
-    conteudo = document.querySelector(".difference--dates");
-    conteudo.textContent = `Contagem de dias : ${diffDays}`;
+    conteudo = document.querySelector(".day--count");
+    conteudo.textContent = `Contagem de dias : ${diffDays} dias`;
 
     const yearPercent = (diffDays / 365) * 100;
     let percentFinal = yearPercent;
@@ -42,5 +42,15 @@ let x = setInterval(() => {
     percentFinal += currentSecondPercent;
 
     conteudo = document.querySelector(".year--percent");
-    conteudo.textContent = `Porcentagem passada do ano : ${percentFinal.toFixed(12)}%`;
-}, 1000);
+    conteudo.textContent = `Porcentagem passada do ano: ${percentFinal.toFixed(12)}%`;
+
+    let percentPastDay = (hours / 24) * 100;
+    const percentMinute = ((1 / 24) / 60) * minutes;
+    percentPastDay += percentMinute;
+
+    const percentSeconds = (((1 / 24) / 60) / 60) * seconds;
+    percentPastDay += percentSeconds;
+
+    conteudo = document.querySelector(".day--percent");
+    conteudo.textContent = `Porcentagem passada do dia: ${percentPastDay.toFixed(12)}%`;
+}, 50);
