@@ -131,3 +131,34 @@ body {
     background-color: #84a98c;
     border-radius: 5px;
 }
+
+.life--count--container {
+    margin-top: 20px;
+    height: auto;
+    width: auto;
+    background-color: #354f52;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+input {
+    color: #cad2c5;
+    color-scheme: dark;
+}
+
+.lifeProgress {
+    width: 100%;
+    background-color: #52796f;
+    border-radius: 5px;
+}
+
+.days--life {
+    padding-top: 15px;
+}
+
+.lifeBar {
+    width: 0%;
+    height: 30px;
+    background-color: #84a98c;
+    border-radius: 5px;
+}

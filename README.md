@@ -1,1 +1,1 @@
-# Porcentagem do Tempo
+# timePercent

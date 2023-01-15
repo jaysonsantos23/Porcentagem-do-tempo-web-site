@@ -1,3 +1,40 @@
+let birthDay = new Date(`01/01/1970`);
+
+function sendBirthday() {
+    birthDay = document.getElementById('birth--day');
+
+    let splitBirthDay = (birthDay.value).split('-');
+    birthDay = new Date(`${splitBirthDay[1]}/${splitBirthDay[2]}/${splitBirthDay[0]}`);
+
+    let currentdate = new Date();
+
+    const day = currentdate.getDate();
+    const mounth = ((currentdate.getMonth() + 1) < 10 ? "0" + (currentdate.getMonth() + 1) : (currentdate.getMonth() + 1));
+    const year = currentdate.getFullYear();
+    const fullyear = ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0) ? 366 : 365
+    const hours = (currentdate.getHours());
+    const minutes = (currentdate.getMinutes());
+    const seconds = (currentdate.getSeconds());
+
+    const date3 = new Date(`${birthDay.getMonth() + 1}/${birthDay.getDate()}/${birthDay.getFullYear()}`);
+    const date4 = new Date(`${mounth}/${day}/${year}`);
+
+    const diffTime2 = Math.abs(date3 - date4);
+    const diffDays2 = (Math.ceil(diffTime2 / (1000 * 60 * 60 * 24))) + 1;
+
+    let lifePercent = ((diffDays2 / 365) / 77) * 100;
+
+    elem = document.querySelector(".lifeBar");
+    elem.style.width = lifePercent.toFixed(12) + "%";
+
+
+    conteudo = document.querySelector(".life--percent");
+    conteudo.textContent = `Porcentagem de vida: ${lifePercent.toFixed(12)} %`;
+
+    conteudo = document.querySelector(".days--life");
+    conteudo.textContent = `Contador de dias desde o nascimento: ${diffDays2} dias`;
+};
+
 setInterval(() => {
     let conteudo = document.querySelector(".main--clock");
     let currentdate = new Date();
@@ -6,10 +43,10 @@ setInterval(() => {
     const mounth = ((currentdate.getMonth() + 1) < 10 ? "0" + (currentdate.getMonth() + 1) : (currentdate.getMonth() + 1));
     const year = currentdate.getFullYear();
     const fullyear = ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0) ? 366 : 365
-    const hours = (currentdate.getHours() < 10 ? "0" + currentdate.getHours() : currentdate.getHours());
-    const minutes = (currentdate.getMinutes() < 10 ? "0" + currentdate.getMinutes() : currentdate.getMinutes());
-    const seconds = (currentdate.getSeconds() < 10 ? "0" + currentdate.getSeconds() : currentdate.getSeconds());
-    let time = `${hours}:${minutes}:${seconds}`;
+    const hours = (currentdate.getHours());
+    const minutes = (currentdate.getMinutes());
+    const seconds = (currentdate.getSeconds());
+    let time = `${currentdate.getHours() < 10 ? "0" + currentdate.getHours() : currentdate.getHours()}:${currentdate.getMinutes() < 10 ? "0" + currentdate.getMinutes() : currentdate.getMinutes()}:${currentdate.getSeconds() < 10 ? "0" + currentdate.getSeconds() : currentdate.getSeconds()}`;
 
     conteudo.textContent = time;
 
